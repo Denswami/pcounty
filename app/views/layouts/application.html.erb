@@ -6,15 +6,18 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Pcounty" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+    <div class="container">
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+  </div>
   </body>
 </html>

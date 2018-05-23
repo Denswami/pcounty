@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :correct_user?, :except => [:index]
-  before_action :reset_session
+  before_action :authenticate_user!, :except => [:new,:create]
+  before_action :correct_user?, :except => [:index,:new, :create]
+  
 
 
   def new

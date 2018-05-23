@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
 
   def new
-    if params[:signin_option]="google"
-    redirect_to '/auth/google_oauth2'
-  else
-    render 'new'
-  end
+  #if params[:signin_option]="google"
+  #redirect_to '/auth/google_oauth2'
+  #  render 'new'
+  #end
+end
 
   def create
       auth = request.env["omniauth.auth"]
-    if auth
+    if( auth !="")
 
     user = User.where(:provider => auth['provider'],
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
      redirect_to login_path
    end
   end
+end
 
   def destroy
     reset_session
